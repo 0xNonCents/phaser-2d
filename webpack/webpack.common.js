@@ -1,6 +1,7 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
   entry: ['./src/scripts/game.ts', './webpack/credits.js'],
@@ -10,7 +11,14 @@ module.exports = {
     chunkFilename: '[name].chunk.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
+    fallback: {
+      stream: require.resolve('stream-browserify'),
+      buffer: require.resolve('buffer'),      
+      process: require.resolve("process/browser"),
+      'process/browser': require.resolve('process/browser')
+      
+    }
   },
   module: {
     rules: [{ test: /\.tsx?$|\.jsx?$/, include: path.join(__dirname, '../src'), loader: 'ts-loader' }]
@@ -35,6 +43,13 @@ module.exports = {
         { from: 'pwa', to: '' },
         { from: 'src/favicon.ico', to: '' }
       ]
-    })
-  ]
+    }),
+    new webpack.DefinePlugin({
+      'process.env.DEBUG': JSON.stringify('eth-js')
+    }),
+
+  ],
+  experiments: {
+    topLevelAwait: true
+  }
 }

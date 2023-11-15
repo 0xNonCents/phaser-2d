@@ -7,7 +7,10 @@ const dev = {
   devtool: 'eval',
   devServer: {
     open: true
-  }
+  },
+  experiments: {
+    topLevelAwait: true,
+  },
 }
 
 module.exports = merge(common, dev)

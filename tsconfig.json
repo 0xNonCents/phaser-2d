@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@evmts/ts-plugin"
+      }
+    ],
     "target": "ES2015",
     "module": "ES2015",
-
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

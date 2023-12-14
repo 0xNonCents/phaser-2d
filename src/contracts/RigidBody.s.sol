@@ -1,4 +1,4 @@
-a// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 // Base contract for common properties like velocity and acceleration

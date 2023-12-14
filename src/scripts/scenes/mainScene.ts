@@ -1,6 +1,6 @@
 import PhaserLogo from '../objects/phaserLogo'
 import FpsText from '../objects/fpsText'
-import { EVMts } from '@evmts/vm'
+import { Tevm } from '@tevm/vm'
 import { AddNumbers } from '../../contracts/AddNumbers.s.sol'
 import { RigidBody } from '../../contracts/RigidBody.s.sol'
 
@@ -22,7 +22,7 @@ export default class MainScene extends Phaser.Scene {
     super({ key: 'MainScene' })
   }
 
-  evmts?: EVMts
+  tevm?: Tevm
 
   circle: Circle
 
@@ -42,13 +42,13 @@ export default class MainScene extends Phaser.Scene {
   }
 
   async update(t, dt) {
-    if (!this.evmts) {
-      this.evmts = await EVMts.create()
+    if (!this.tevm) {
+      this.tevm = await Tevm.create()
       return
     }
 
     console.log(this.circle)
-    let res = await this.evmts.runScript(RigidBody.read.tick(this.circle.vel, this.circle.acc, this.circle.pos))
+    let res = await this.tevm.runScript(RigidBody.read.tick(this.circle.vel, this.circle.acc, this.circle.pos))
 
     console.log('res data', res.data)
 

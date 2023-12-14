@@ -40,8 +40,8 @@
   "license": "MIT",
   "dependencies": {
     "@ethereumjs/evm": "^2.1.0",
-    "@evmts/core": "^1.0.0-next.12",
-    "@evmts/vm": "^1.0.0-next.11",
+    "@tevm/core": "next",
+    "@tevm/vm": "next",
     "abitype": "^0.10.2",
     "buffer": "^6.0.3",
     "phaser": "^3.55.2",
@@ -49,8 +49,8 @@
     "viem": "^1.19.1"
   },
   "devDependencies": {
-    "@evmts/ts-plugin": "^1.0.0-next.13",
-    "@evmts/webpack-plugin": "^1.0.0-next.13",
+    "@tevm/ts-plugin": "next",
+    "@tevm/webpack-plugin": "next",
     "@yandeu/prettier-config": "^0.0.3",
     "copy-webpack-plugin": "^10.1.0",
     "html-webpack-plugin": "^5.5.0",
